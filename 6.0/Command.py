@@ -44,7 +44,6 @@ def sendcommand(ss):
             re1=re1//2
             i=i+1
         connected_board[i]=re1
-    print(connected_board)
     ser.read(1)
     return connected_board
  

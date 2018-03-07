@@ -37,17 +37,19 @@ port1="COM7"
 ##port for milliK
 port2="COM8"
 
-level=np.linspace(20.0,50.0,50)
+boardno=4
+
+level=np.linspace(20.0,35.0,50)
 
 
 #######################################################################
 
-a=np.zeros((50,50))
-b=np.zeros((50,50))
-c=np.zeros((50,50))
+a=np.zeros((100,100))
+b=np.zeros((100,100))
+c=np.zeros((100,100))
 empty=[None]*2500
 
-tcal=[None]*10
+tcal=np.zeros((4,10))
 tvel=[None]*2500
 connected_board=[0,0,0,0]
 
@@ -58,8 +60,8 @@ temp = 0b101111
 data = 0
 header = 0
 PressureArray=[]
-X=[x for x in range(50)]
-Y=[y for y in range(50)]
+X=[x for x in range(100)]
+Y=[y for y in range(100)]
 x,y=np.meshgrid(X, Y)
 #fig=plt.figure()
 #plt.axes().set_aspect('equal')

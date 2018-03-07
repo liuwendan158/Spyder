@@ -28,7 +28,7 @@ from settings import ser,X,Y,excelrow,worksheet,workbook,level
 from settings import caltimes
 
 
-M=np.zeros((50,50))
+M=np.zeros((100,100))
 '''
 print("Do you need calibration?Please input y/n")
 answer=input()
@@ -38,7 +38,6 @@ if (answer=='y'):
     AutoVel.AutoVel()'''
 
 ReadCal.ReadCal()
-
 
 print("Do you need Dynamic Automation?Please enter y/n")
 answer=input()
@@ -55,8 +54,8 @@ for i in range(60):
     Animation.plot(X,Y,M,level)
     #CS=plt.contour(X, Y, M,levels=level)
     #plt.clabel(CS, inline=1, fontsize=10)
-    ListData=np.reshape(M,2500)
-    excelrow=SaveFile.SaveFile(excelrow,worksheet,ListData)
+    #ListData=np.reshape(M,40000)
+    #excelrow=SaveFile.SaveFile(excelrow,worksheet,ListData)
     #plt.show()
 
 
