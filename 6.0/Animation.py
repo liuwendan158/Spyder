@@ -31,6 +31,7 @@ def realtime(TemData,connection):
             for i in range(51):
                 for j in range(50):
                     if row>200:
+                        print('wrong row',row)
                         break
                     data=int.from_bytes(ser.read(2),byteorder='big')
                     if data==0:
@@ -38,30 +39,11 @@ def realtime(TemData,connection):
                     else:
                         data2=((3003 / ((0.292969 * data) / 1000 + 1.8)) - 834.66) / 8.7295
                         data3=ReadCal.DoCal(row,j,data2)
+                    #TemData[row,j]=data3
+                    row,j=remap(row,j)
                     TemData[row,j]=data3
                 ser.read(1)
                 row=ReadCal.begin()
-                
-    '''for i in range(200):
-            header=0
-            data1=0
-            while(header != b'\xff'):
-                header = ser.read(1)
-            data1=ser.read(2)
-            if(data1==b'\xff\xff'):
-                row=int.from_bytes(ser.read(1),'little')
-                if row>200:
-                    print('wrong row', row)
-                    break;
-                for j in range(200):
-                    data=int.from_bytes(ser.read(2),byteorder='big')
-                    if data==0:
-                        data2=0;
-                    else:
-                        data2=((3003 / ((0.292969 * data) / 1000 + 1.8)) - 834.66) / 8.7295
-                        data3=ReadCal.DoCal(row,j,data2)
-                    TemData[row,49-j]=data3
-                ser.read(1)'''
     return TemData
 
 def plot(X, Y, M,level):
@@ -74,4 +56,18 @@ def plot(X, Y, M,level):
     CX=plt.contourf(X, Y, M,origin='upper', cmap=plt.cm.jet,levels=level)
     plt.colorbar(CX)
     plt.pause(0.03)
+    
+def remap(row,j):
+    if(row<50):
+        j=49-j
+    if(row>49 and row<100):
+        temp=row
+        row=j
+        j=temp
+    '''
+    if(row>99 and row<150):
+        break
+    if(row>149 and row<200):
+    '''
+    return row,j
         

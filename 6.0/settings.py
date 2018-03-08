@@ -31,7 +31,7 @@ vergap=2.50
 calgap=3.00
 
 ##port for MSP430
-port="COM10"
+port="COM5"
 ##port for temperature control and reading
 port1="COM7"
 ##port for milliK
@@ -44,9 +44,9 @@ level=np.linspace(20.0,35.0,50)
 
 #######################################################################
 
-a=np.zeros((100,100))
-b=np.zeros((100,100))
-c=np.zeros((100,100))
+a=np.zeros((200,50))
+b=np.zeros((200,50))
+c=np.zeros((200,50))
 empty=[None]*2500
 
 tcal=np.zeros((4,10))

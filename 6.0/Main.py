@@ -49,7 +49,7 @@ elif (answer=='y'):
     h=int(answer)
     rw=DynamicAutomation.dynamic(h)
 
-for i in range(60):
+for i in range(6000):
     M=next(rw)
     Animation.plot(X,Y,M,level)
     #CS=plt.contour(X, Y, M,levels=level)

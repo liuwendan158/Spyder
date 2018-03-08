@@ -31,7 +31,7 @@ def initial():
     
 
 def sendcommand(ss):
-    initial() 
+    initial()
     ll=[ord(d) for d in ss]
     ser.write(ll)
     time.sleep(0.5)

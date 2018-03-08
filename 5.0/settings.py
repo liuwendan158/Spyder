@@ -31,7 +31,7 @@ vergap=2.50
 calgap=3.00
 
 ##port for MSP430
-port="COM10"
+port="COM5"
 ##port for temperature control and reading
 port1="COM7"
 ##port for milliK

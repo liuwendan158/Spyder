@@ -19,10 +19,10 @@ from Command import initial
 
 def dynamic(DynamicTimes):
     names=locals()
-    Temtotal= np.zeros((200,200))
-    ADC=np.zeros((200,200))
+    Temtotal= np.zeros((100,100))
+    ADC=np.zeros((100,100))
     for i in range(DynamicTimes):
-        names['TemData%s' % i] = np.zeros((200,200))
+        names['TemData%s' % i] = np.zeros((100,100))
         
     initial()
     

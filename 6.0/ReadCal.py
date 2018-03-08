@@ -12,7 +12,7 @@ from Command import sendcommand,stop
 
 names=locals()
 for i in range(caltimes):
-    names['T%s' % i] = np.zeros((100,100))
+    names['T%s' % i] = np.zeros((200,50))
 
 def ReadCal():
     connected_board=[0,0,0,0]
@@ -32,10 +32,8 @@ def ReadCal():
         for times in range(caltimes):
             y.append(tcal[connect,times])
         print('tcal:',y)'''
-    print(tcal[49//50,:])
-    print(tcal[50//50,:])
-    for i in range(100):
-        for j in range(100):
+    for i in range(200):
+        for j in range(50):
             x=[]
             for times in range(caltimes):
                 x.append(names['T%s' % times][i,j])
@@ -99,6 +97,8 @@ def readtemp():
     ser.read(2)
     
     return temp
+
+    
     
     
 
