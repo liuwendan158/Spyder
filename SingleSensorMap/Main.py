@@ -36,7 +36,7 @@ if (answer=='y'):
     
 AutoVel.AutoVel()'''
 
-ReadCal.ReadCal()
+#ReadCal.ReadCal()
 
 print("Do you need Dynamic Automation?Please enter y/n")
 answer=input()
@@ -49,14 +49,15 @@ elif (answer=='y'):
     rw=DynamicAutomation.dynamic(h)
 
 for i in range(6000):
-    plt.figure("Nano and Advanced Materials Institue")
     plt.clf()
     M=next(rw)
+    print(M)
     plt.axes().set_aspect('equal')
     plt.title('NAMI Temprature Sensor')
     plt.xticks(())
     plt.yticks(())
-    CX=plt.contourf(X, Y, M,origin='upper', cmap=plt.cm.jet,levels=level)
+    plt.figure("Nano and Advanced Materials Institue")
+    CX=plt.contourf(X, Y, M,50,origin='upper', cmap=plt.cm.jet)
     plt.colorbar(CX)
     #CS=plt.contour(X, Y, M,levels=level)
     #plt.clabel(CS, inline=1, fontsize=10)
